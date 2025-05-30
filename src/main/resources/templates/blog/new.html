@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Formulario de Entrada</h1>
+<form th:action="@{/guardar}" method="POST">
+
+        <label for="titulo">Titulo</label>
+        <input id="titulo" type="text" th:name="titulo" required/>
+
+        <label>Contenido</label>
+        <textarea th:name="contenido" required></textarea>
+
+        <label for="a">Autor</label>
+        <input id="a" type="text" th:name="autor" required/>
+
+        <label for="ca">Categoria</label>
+        <input id="ca" type="text" th:name="categoria" required/>
+
+        <div>
+            <button type="submit">Guardar</button>
+            <a th:href="@{/}"><button >Cancelar</button></a>
+        </div>
+
+</form>
+</body>
+</html>

@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<div style="display: flex;justify-content: space-between">
+<h3>Entradas del Blog</h3>
+<a th:href="@{'/nuevo'}"><button style="color: white; background-color: blue">Crear Nueva Entrada</button></a>
+</div>
+<div th:each="post : ${lista}">
+    <div>
+        <h2 th:text="${post.titulo}">Título de la Entrada</h2>
+        <p >Fecha: <span th:text="${post.fechaPublicacion}"></span></p>
+    </div>
+    <p>Autor: <span th:text="${post.autor}"></span></p>
+    <p>Categoria: <span th:text="${post.categoria}"></span></p>
+    <p th:text="${post.contenido}">Extracto del contenido</p>
+    <div>
+        <a th:href="@{'/ver' + '?id=' + ${post.id}}"><button style="color: white; background-color: deepskyblue">Ver completo</button></a>
+        <a th:href="@{'/editar' + '?id=' + ${post.id}}"><button style="color: white; background-color: yellow">Editar</button></a>
+        <a th:href="@{'/borrar' + '?id=' + ${post.id}}"><button style="color: white; background-color: red">Eliminar</button></a>
+    </div>
+</div>
 </body>
 </html>
